@@ -1,0 +1,436 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8e4b0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* Title */
+.title {
+    font-size: 24px;
+    color: #d18827;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Game Layout */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Word Search Grid */
+.word-search {
+    border: 5px solid #d18827;
+    padding: 10px;
+    background: white;
+    flex-shrink: 0;
+}
+
+/* Word List */
+.word-list {
+    background-color: #d18827;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.word-list h2 {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.word-list ul{
+    list-style: none;
+    padding: 0;
+}
+
+.word-list li {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    padding: 8px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Table Styles */
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    user-select: none;
+    outline: none;
+}
+
+#backToLobby {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #b85c23;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#backToLobby:hover {
+    background-color: #8a3e17;
+}
+
+
+/* Highlighting selected letters */
+.selected {
+    background-color: orange !important;
+    color: white;
+}
+
+
+.correct {
+    background-color: green !important;
+    color: white !important;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Strike-through for found words */
+.found {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: black;
+}
+
+
+.hidden {
+    visibility: hidden;
+}
+
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding-top: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .word-search {
+        width: 95%;
+        padding: 5px;
+    }
+
+    .word-list {
+        position: static;
+        width: 80%;
+        transform: none;
+        text-align: center;
+        padding: 15px;
+    }
+
+    td {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+
+/* Small devices (tablets, 600px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .word-list {
+        position: static;
+        width: 80%;
+        transform: none;
+        text-align: center;
+    }
+
+    td {
+        width: 35px;
+        height: 35px;
+        font-size: 17px;
+    }
+}
+
+/* Medium devices (small laptops, 768px to 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 85%;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .game-container {
+        gap: 40px;
+    }
+
+    .word-list {
+        right: 0;
+        width: 220px;
+    }
+
+    td {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+
+/* Large devices (desktops, 1025px and above) */
+@media only screen and (min-width: 1025px) {
+    .container {
+        width: 80%;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .game-container {
+        gap: 50px;
+    }
+
+    .word-list {
+        right: -10%;
+        width: 250px;
+    }
+
+    td {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .game-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; 
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 0 5vw; 
+        box-sizing: border-box;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 4vh !important;
+        margin-bottom: 1vh !important; 
+        margin-top: -8px !important;
+    }
+
+    .word-search {
+        width: min(85vh, 85vw); 
+        height: min(85vh, 85vw);
+        aspect-ratio: 1 / 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-top: -70px !important; 
+        margin-left: -20px !important;
+    }
+
+    .word-search table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; 
+    }
+    
+    .word-search td {
+        text-align: center;
+        font-size: 3vh;
+        border: 1px solid black;
+        width: auto; 
+        height: auto; 
+        aspect-ratio: 1 / 1; 
+    }
+
+    .word-list {
+        flex: 1;
+        max-width: 30vw; 
+        min-width: 25vw; 
+        text-align: center;
+        padding: 15px; 
+        height: auto;
+        overflow-y: auto;
+        margin-right: 130px !important;
+        margin-top: -30px !important;
+    }
+
+    .word-list h2 {
+        font-size: 3.5vh; 
+        margin-bottom: 5px;
+    }
+
+    .word-list ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .word-list li {
+        font-size: 3vh; 
+        padding: 5px 0; 
+        font-weight: bold;
+    }
+
+   
+    #backToLobby {
+        width: 100%;
+        padding: 8px; 
+        font-size: 3.5vh !important; 
+    }
+
+   
+    #backToLobby {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .game-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; 
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 0 5vw; 
+        box-sizing: border-box;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 4vh !important;
+        margin-bottom: 1vh !important; 
+        margin-top: -10px !important;
+    }
+
+    .word-search {
+        width: min(80vh, 80vw); 
+        height: min(80vh, 80vw);
+        aspect-ratio: 1 / 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-top: -70px !important; 
+        margin-left: -20px !important;
+    }
+
+    .word-search table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; 
+    }
+    
+    .word-search td {
+        text-align: center;
+        font-size: 3vh;
+        border: 1px solid black;
+        width: auto; 
+        height: auto; 
+        aspect-ratio: 1 / 1;
+    }
+
+    .word-list {
+        flex: 1;
+        max-width: 25vw; 
+        min-width: 20vw; 
+        text-align: center;
+        padding: 8px;
+        height: auto;
+        overflow-y: auto;
+        margin-top: -70px !important; 
+        margin-left: 100px !important;
+    }
+
+    .word-list h2 {
+        font-size: 3.5vh; 
+        margin-bottom: 5px; 
+    }
+
+    .word-list ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .word-list li {
+        font-size: 3vh; 
+        padding: 5px 0;
+        font-weight: bold;
+    }
+
+  
+    #backToLobby {
+        width: 100%;
+        padding: 8px;
+        font-size: 3.5vh;
+    }
+}
